@@ -8,4 +8,4 @@ WORKDIR /app
 
 COPY . .
 
-CMD [ "./test-golang" ]
+CMD [ "harihandika/test-golang" ]
