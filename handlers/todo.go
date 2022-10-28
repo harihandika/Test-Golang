@@ -74,8 +74,9 @@ func (h *handlerTodo) CreateTodo(w http.ResponseWriter, r *http.Request) {
 	}
 
 	todo := models.Todo{
-		Title:    request.Title,
-		Priority: request.Priority,
+		Title:           request.Title,
+		Priority:        request.Priority,
+		ActivityGroupId: request.ActivityGroupId,
 	}
 
 	data, err := h.TodoRepository.CreateTodo(todo)
