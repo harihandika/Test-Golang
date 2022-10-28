@@ -15,6 +15,6 @@ func ActivityRoutes(r *mux.Router) {
 	r.HandleFunc("/activity-groups", h.FindActivity).Methods("GET")
 	r.HandleFunc("/activity-groups/{id}", h.GetActivity).Methods("GET")
 	r.HandleFunc("/activity-groups", h.CreateActivity).Methods("POST")
-	r.HandleFunc("/activity_groups/{id}", h.UpdateActivity).Methods("PATCH")
-	r.HandleFunc("/activity_groups/{id}", h.DeleteActivity).Methods("DELETE")
+	r.HandleFunc("/activity-groups/{id}", h.UpdateActivity).Methods("PATCH")
+	r.HandleFunc("/activity-groups/{id}", h.DeleteActivity).Methods("DELETE")
 }
