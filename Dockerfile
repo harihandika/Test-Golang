@@ -6,6 +6,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN go build -o harihandika/test-golang
+RUN go build -o test-golang
 
-CMD [ "./harihandika/test-golang" ]
+CMD [ "go", "run", "app/main.go" ]
