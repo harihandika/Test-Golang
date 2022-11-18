@@ -121,9 +121,22 @@ var arr = ["Hari","Handika","Setiawan","FullStack","Developer"];
 // console.log(angka2.join(' - '));
 
 // 8 sort
-var angka = [1,2,8,10,20,6,5,7,4,3];
-console.log(angka.join(' - '));
-angka.sort(function(a,b){
-    return a-b
-});
-console.log(angka.join(' - '));
+// var angka = [1,2,8,10,20,6,5,7,4,3];
+// console.log(angka.join(' - '));
+// angka.sort(function(a,b){
+//     return a-b
+// });
+// console.log(angka.join(' - '));
+
+// 9. filter & find
+// var angka = [1,2,3,4,5,10,8,6,9,7];
+// var angka1 = angka.filter(function(x){
+//     return x > 5;
+// });
+// console.log(angka1.sort(function(a,b){
+//     return a-b
+// }));
+// var angka1 = angka.find(function(x){
+//     return x > 5;
+// });
+// console.log(angka1);
