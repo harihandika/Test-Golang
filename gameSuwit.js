@@ -8,9 +8,9 @@ while (tanya) {
   // bilangan random
   let comp = Math.random();
 
-  if (comp < 0.3) {
+  if (comp < 0.33) {
     comp = "gajah";
-  } else if (comp >= 0.34 && comp <= 0.6) {
+  } else if (comp >= 0.33 && comp <= 0.66) {
     comp = "semut";
   } else {
     comp = "orang";
