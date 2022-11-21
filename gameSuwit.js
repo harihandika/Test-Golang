@@ -1,5 +1,5 @@
 let tanya = true;
-while (tanya ) {
+while (tanya) {
 
   // pilihan player
   let p = prompt("pilih : gajah, semut, orang");

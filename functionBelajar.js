@@ -58,7 +58,7 @@
 // let coba = tambah(5,10,20,"hi",false);
 // console.log(coba);
 
-function  tambah() {
+function tambah() {
     let hasil = 0;
     for (let i = 0; i < arguments.length; i++) {
         hasil += arguments[i];
