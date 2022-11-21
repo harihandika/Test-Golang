@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main2() {
 	// var person map[string]string = map[string]string
 	//{ (ini sama dengan = person := map[string]string{)
 	// person := map[string]string{
@@ -76,6 +76,7 @@ func main() {
 	// min, max := findMinAndMax(a)
 	// fmt.Println("Min: ", min)
 	// fmt.Println("Max: ", max)
+
 	var h = []int{11, -4, 7, 8, -10}
 	var min = Shipping(10, h)
 	fmt.Println(min)
@@ -91,6 +92,6 @@ func Shipping(N int, h []int) int {
 			res++
 		}
 	}
-	fmt.Println(min)
+	// fmt.Println(min)
 	return min
 }
