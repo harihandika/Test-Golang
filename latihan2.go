@@ -31,11 +31,82 @@ func main() {
 	// 	fmt.Println(value)
 	// }
 
-	person := make(map[string]string)
-	person["name"] = "Eko"
-	person["title"] = "Programmer"
+	// person := make(map[string]string)
+	// person["name"] = "Eko"
+	// person["title"] = "Programmer"
 
-	for key, value := range person {
-		fmt.Println(key, "=", value)
+	// for key, value := range person {
+	// 	fmt.Println(key, "=", value)
+	// }
+
+	// for i := 0; i < 10; i++ {
+	// 	if i == 5 {
+	// 		break
+	// 	}
+	// 	fmt.Println("Perulangan ke ", i)
+	// }
+
+	// for i := 0; i < 10; i++ {
+	// 	if i%2 == 1 {
+	// 		continue
+	// 	}
+	// 	fmt.Println("Perulangan ke ", i)
+	// }
+
+	// function in golang
+	// for i := 0; i < 10; i++ {
+	// 	sayHello()
+	// 	fmt.Println(i)
+	// }
+	// sayHelloTo("Hari", 10)
+	// atau
+	// firstName := "Hari"
+	// nilai := 10
+	// sayHelloTo(firstName, nilai)
+	// result := getHelloTo(" Hari")
+	// fmt.Println(result)
+	// fmt.Println(getHelloTo(""))
+
+	// firstName, lastName, nilai, bool := getFullName()
+	// fmt.Println(firstName, lastName, nilai, bool)
+
+	// firstName, _, _, _ := getFullName()
+	// fmt.Println(firstName)
+	a, b, c, _ := getCompleteName() // nama variable tidak harus sama pada kasus name return value
+	fmt.Println(a, b, c)
+}
+
+// untuk tipe data sama
+// func getCompleteName() (firstName, middleName, lastName string) {}
+func getCompleteName() (firstName string, middleName string, lastName string, nilai int) {
+	firstName = "Hari"
+	middleName = "Handika"
+	lastName = "Setiawan"
+	nilai = 10
+
+	return
+}
+
+func sayHelloTo(firstName string, nilai int) {
+	fmt.Println("Hello", firstName, nilai)
+}
+
+func sayHello() {
+	fmt.Println("Hello")
+}
+
+func getHello(name string) string {
+	return "Hello" + name
+}
+
+func getHelloTo(name string) string {
+	if name == "" {
+		return "Hello New User"
+	} else {
+		return "Hello" + name
 	}
+}
+
+func getFullName() (string, string, int, bool) {
+	return "Hari", "Handika", 10, true
 }
