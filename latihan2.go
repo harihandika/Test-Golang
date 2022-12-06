@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main3() {
 
 	// //for loop
 	// counter := 0
@@ -72,8 +72,36 @@ func main() {
 
 	// firstName, _, _, _ := getFullName()
 	// fmt.Println(firstName)
-	a, b, c, _ := getCompleteName() // nama variable tidak harus sama pada kasus name return value
-	fmt.Println(a, b, c)
+	// a, b, c, _ := getCompleteName() // nama variable tidak harus sama pada kasus name return value
+	// fmt.Println(a, b, c)
+
+	// total := sumAll(10, 11, 12, 13, 14, 15)
+	// fmt.Println(total)
+
+	// total := sumAll(10, 11, 12, 13, 14, 15)
+	// fmt.Println(total)
+
+	// slice := []int{11, 12, 13, 14, 15}
+	// total1 := sumAll(slice...)
+	// fmt.Println(total1)
+
+	sayGoodBye := getGoodBye
+	result := sayGoodBye("Hari")
+	fmt.Println(result)
+	fmt.Println(getGoodBye("Hari"))
+
+}
+
+func sumAll(numbers ...int) int {
+	total := 0
+	for _, number := range numbers {
+		total += number
+	}
+	return total
+}
+
+func getGoodBye(name string) string {
+	return "Good Bye " + name
 }
 
 // untuk tipe data sama
