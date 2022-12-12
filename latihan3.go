@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main4() {
 	// sayHelloWithFilter1("Hari", spamFilter)
 	// filter := spamFilter
 	// sayHelloWithFilter1("Anjing", filter)
