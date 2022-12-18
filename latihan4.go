@@ -10,7 +10,7 @@ type Customer struct {
 	Age           int
 }
 
-func main() {
+func main5() {
 	// var hari Customer
 	// hari.Name = "Hari Handika Setiawan"
 	// hari.Address = "Indonesia"
@@ -65,13 +65,79 @@ func main() {
 	// var contohError error = errors.New("Ups Error")
 	// fmt.Println(contohError.Error())
 
-	hasil, err := Pembagian(100, 0)
-	if err == nil {
-		fmt.Println("Hasil", hasil)
-	} else {
-		fmt.Println("Error", err.Error())
-	}
+	// hasil, err := Pembagian(100, 0)
+	// if err == nil {
+	// 	fmt.Println("Hasil", hasil)
+	// } else {
+	// 	fmt.Println("Error", err.Error())
+	// }
 
+	// result := random()
+	// resultString := result.(string)
+	// fmt.Println(resultString)
+
+	// resultInt := result.(int) //panic
+	// fmt.Println(resultInt)
+
+	// result := random()
+	// switch value := result.(type) {
+	// case string:
+	// 	fmt.Println("String", value)
+	// case int:
+	// 	fmt.Println("Int", value)
+	// default:
+	// 	fmt.Println("Unknown", value)
+	// }
+
+	// address1 := Address{"Subang", "Jawa Barat", "Indonesia"}
+	// // address2 := address1 	// tanpa pointer
+	// address2 := &address1 // dengan pointer
+	// var address3 *Address = &address1
+
+	// address2.City = "Bandung"
+
+	// // address2 = &Address{"Jakarta", "DKI_Jakarta", "Indonesia"}	//tanpa operator *
+	// *address2 = Address{"Jakarta", "DKI_Jakarta", "Indonesia"} // dengan operator * dan hapus tanda &
+
+	// fmt.Println(address1)
+	// fmt.Println(address2)
+	// fmt.Println(address3)
+
+	// var address4 *Address = new(Address) // data kosong, tidak ada data awal
+	// address4.State = "SumateraSelatan"
+	// fmt.Println(address4)
+
+	// address := Address{"Subang", "Jawa Barat", ""}
+	// ChangeAddressToIndonesia(&address)
+
+	// fmt.Println(address)
+
+	hari := Man{"Hari"}
+	hari.Married()
+	fmt.Println(hari.Name)
+
+}
+
+type Man struct {
+	Name string
+}
+
+func (man *Man) Married() {
+	man.Name = "Mr. " + man.Name
+	// fmt.Println("Ini Method", man.Name)
+}
+
+// func ChangeAddressToIndonesia(address Address) {	//tanpa pointer *
+func ChangeAddressToIndonesia(address *Address) { //dengan pointer *
+	address.Country = "Indonesia"
+}
+
+type Address struct {
+	City, State, Country string
+}
+
+func random() interface{} {
+	return 0.1
 }
 
 func Pembagian(nilai int, pembagi int) (int, error) {
