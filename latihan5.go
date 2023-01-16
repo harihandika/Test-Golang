@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"reflect"
+	"regexp"
+	"sort"
 	// "golang/database"	// tanpa blank identifier
 	// _ "golang/database" // dengan blank identifier ( _ )
 )
@@ -84,11 +86,150 @@ func main() {
 	// valueStr := strconv.Itoa(100)
 	// fmt.Println(valueStr)
 
-	fmt.Println("Ini Round ", math.Round(1.7))
-	fmt.Println("Ini Round ", math.Round(1.499))
-	fmt.Println("Ini Floor", math.Floor(1.8))
-	fmt.Println("Ini Ceil", math.Ceil(1.2))
-	fmt.Println("Ini Max", math.Max(1, 8))
-	fmt.Println("Ini Min", math.Min(1, 8))
+	// fmt.Println("Ini Round ", math.Round(1.7))
+	// fmt.Println("Ini Round ", math.Round(1.499))
+	// fmt.Println("Ini Floor", math.Floor(1.8))
+	// fmt.Println("Ini Ceil", math.Ceil(1.2))
+	// fmt.Println("Ini Max", math.Max(1, 8))
+	// fmt.Println("Ini Min", math.Min(1, 8))
 
+	// data := list.New()
+	// data.PushBack("Hari")
+	// data.PushBack("Handika")
+	// data.PushBack("Setiawan")
+	// data.PushFront("Ini")
+
+	// fmt.Println(data.Front().Value)
+	// fmt.Println(data.Back().Value)
+	// fmt.Println("Ini next", data.Front().Next().Next())
+	// fmt.Println("Ini Back", data.Back().Prev().Prev())
+
+	// // iterate dari depan ke belakang
+	// for e := data.Front(); e != nil; e = e.Next() {
+	// 	fmt.Println(e.Value)
+	// }
+
+	// // iterate dari belakang ke depan
+	// for e := data.Back(); e != nil; e = e.Prev() {
+	// 	fmt.Println(e.Value)
+	// }
+
+	// var data *ring.Ring = ring.New(5)
+	// data := ring.New(5) // tanpa var dengan :=
+	// for i := 0; i < data.Len(); i++ {
+	// 	data.Value = "Value " + strconv.FormatInt(int64(i), 10)
+	// 	data = data.Next()
+	// }
+
+	// data.Do(func(value interface{}) {
+	// 	fmt.Println(value)
+	// })
+
+	users := []User{
+		{"Handika", 21},
+		{"Setiawan", 22},
+		{"Hari", 20},
+		{"Ganteng", 23},
+	}
+
+	// fmt.Println(users)
+	sort.Sort(UserSlice(users))
+	fmt.Println(users)
+
+	// now := time.Now()
+	// now.Day()
+
+	// fmt.Println(now)
+	// fmt.Println(now.Year())
+	// fmt.Println(now.Month())
+	// fmt.Println(now.Day())
+	// fmt.Println(now.Hour())
+	// fmt.Println(now.Minute())
+	// fmt.Println(now.Second())
+	// fmt.Println(now.Nanosecond())
+
+	// fmt.Println(now.Local())
+
+	// utc := time.Date(2009, time.December, 10, 22, 0, 0, 0, time.UTC)
+	// fmt.Println(utc)
+
+	// parse, _ := time.Parse(time.RFC3339, "2008-02-03T15:04:05Z07:00")
+	// fmt.Println(parse)
+
+	// layout := "2006-01-02"
+	// parse1, _ := time.Parse(layout, "2020-12-23")
+	// fmt.Println(parse1)
+
+	// sample := Sample{"Hari"}
+	// sampleType := reflect.TypeOf(sample) // atau bisa menggunakan var
+	// // var sampleType reflect.Type = reflect.TypeOf(sample)
+	// structField := sampleType.Field(0)
+	// required := structField.Tag.Get("required")
+
+	// fmt.Println(sampleType.NumField())
+	// fmt.Println(structField.Name)
+	// fmt.Println(required)
+	// fmt.Println(sampleType.Field(0).Tag.Get("max"))
+	// fmt.Println(sampleType.Field(0).Tag.Get("min"))
+
+	// sample.Name = ""
+	// fmt.Println(IsValid(sample))
+
+	// contoh := ContohSample{"Hari", "Hari"}
+	// fmt.Println(IsValid(contoh))
+
+	var regex *regexp.Regexp = regexp.MustCompile("h([a-z])i")
+	fmt.Println(regex.MatchString("hai"))
+	fmt.Println(regex.MatchString("hri"))
+	fmt.Println(regex.MatchString("hSi"))
+
+	search := regex.FindAllString("hai hri hsi hfi hki nhi", 20)
+	fmt.Println(search)
+
+}
+
+func IsValid(data interface{}) bool {
+	t := reflect.TypeOf(data)
+	for i := 0; i < t.NumField(); i++ {
+		field := t.Field(i)
+		if field.Tag.Get("required") == "true" {
+			value := reflect.ValueOf(data).Field(i).Interface()
+			if value == "" {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+type ContohSample struct {
+	Name        string `required:"true"`
+	Description string `required:"true" `
+}
+
+type Sample struct {
+	Name string `required:"true" max:"10"`
+}
+
+// type Sample struct {
+// 	Name string
+// }
+
+type User struct {
+	Name string
+	Age  int
+}
+
+type UserSlice []User
+
+func (userSlice UserSlice) Len() int {
+	return len(userSlice)
+}
+
+func (userSlice UserSlice) Less(i, j int) bool {
+	return userSlice[i].Age < userSlice[j].Age
+}
+
+func (userSlice UserSlice) Swap(i, j int) {
+	userSlice[i], userSlice[j] = userSlice[j], userSlice[i]
 }
